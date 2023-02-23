@@ -1,4 +1,3 @@
-import System.Win32 (COORD(yPos), xBUTTON1)
 -- 1a 
 -- Searches for the Greatest Common Divider
 euclid::Integer -> Integer -> Integer
