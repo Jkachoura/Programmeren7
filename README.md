@@ -5,4 +5,4 @@ These assignments were written in Haskell and the goal was to get a better under
 
 ## Requirements
 
-To run the codes you need GHC compiler which can be downloaded [here](https://www.haskell.org/downloads/) if needed.
+To run the codes you need a GHC compiler which can be downloaded [here](https://www.haskell.org/downloads/) if needed.
