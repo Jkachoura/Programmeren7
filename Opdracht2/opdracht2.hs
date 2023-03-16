@@ -13,7 +13,25 @@ module Opdracht2 where
 
 
     -- 2
-    -- 
+    --
+    generateKeys::Integer -> Integer -> Integer -> (Integer, Integer, Integer)
+    generateKeys p1 p2 e
+        | not (isPrime p1 || isPrime p2) = (0, 0, 0)
+        | not (e < m' || euclid e m' == 1) = (0, 0, 0)
+        | otherwise = (e, d, m)
+        where m = modulus p1 p2
+              m' = modulus' p1 p2
+              d = head [x | x <- [1..], (e * x) `mod` m' == 1]
+    
+    -- Calculate modulus
+    modulus::Integer -> Integer -> Integer
+    modulus p q = p * q
+
+    -- Calculate modulus'
+    modulus'::Integer -> Integer -> Integer
+    modulus' p q = (p - 1) * (q - 1)
+
+    -- Check if given number is prime
     isPrime::Integer -> Bool
     isPrime p
         | p > 1 = null [ x | x <- [2..p - 1], p `mod` x == 0]
