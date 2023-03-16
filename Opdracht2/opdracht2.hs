@@ -1,7 +1,7 @@
 module Opdracht2 where
     import Data.Char
     -- 1a 
-    -- Searches for the Greatest Common Divider
+    -- Searches for the Greatest Common Divider 
     euclid::Integer -> Integer -> Integer
     euclid x y
         | x < y = euclid y x
@@ -14,7 +14,10 @@ module Opdracht2 where
 
     -- 2
     -- 
-
+    isPrime::Integer -> Bool
+    isPrime p
+        | p > 1 = null [ x | x <- [2..p - 1], p `mod` x == 0]
+        | otherwise = False
 
     -- 3a
     -- Rsa encryption
