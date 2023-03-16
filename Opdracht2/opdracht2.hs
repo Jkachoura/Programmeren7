@@ -9,11 +9,22 @@ module Opdracht2 where
         | otherwise = euclid y (x `mod` y)
 
     -- 1b
-    -- 
-
+    -- Old function
+    egcd::Integer -> Integer -> (Integer, Integer, Integer)
+    egcd 0 b = (b, 0, 1)
+    egcd a b =
+        let (g, s, t) = egcd (b `mod` a) a
+         in (g, t - (b `div` a) * s, s)
+    
+    -- New function that adds modulus if outcome is smaller than 0
+    egcd':: Integer -> Integer -> (Integer, Integer, Integer)
+    egcd' a b
+        | s < 0 = (g, s + b, t)
+        | t < 0 = (g, s, t + b)
+        where (g, s, t) = egcd a b
 
     -- 2
-    --
+    -- Generate keys
     generateKeys::Integer -> Integer -> Integer -> (Integer, Integer, Integer)
     generateKeys p1 p2 e
         | not (isPrime p1 || isPrime p2) = (0, 0, 0)
