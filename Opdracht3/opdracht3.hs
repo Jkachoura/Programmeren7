@@ -3,9 +3,11 @@ module Opdracht3 where
     
     --1a
     differentieer :: (Double -> Double) -> Double -> Double -> Double
-    differentieer f p x = (f (x + p) - f (x - p)) / (2 * p)
+    differentieer f p x = (f (x + p) - f (x)) / (p)
 
-
+    -- 1b
+    integreer::(Double -> Double) -> Double -> Double -> Double -> Double
+    integreer f a b p 
 
     --1b
 
