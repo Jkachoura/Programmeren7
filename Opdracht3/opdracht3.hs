@@ -1,6 +1,5 @@
 module Opdracht3 where
-    -- import Data.List(group,nub,(\\))
-    import Data.List
+    import Data.List(group,nub,(\\), sort)
     --1a
     -- Differentiequotient
     differentieer :: (Double -> Double) -> Double -> Double -> Double
@@ -37,7 +36,7 @@ module Opdracht3 where
     onePair list = filter (\x -> length (filterOgen x 2) == 1 && length (filterOgen x 3) == 0) list
     straight list = filter filterStraight list
     bust list = filter (\x -> length ((poker [x]) ++ (fourOfAKind [x]) ++ (threeOfAKind [x]) ++ (fullHouse [x]) ++ (twoPair [x]) ++ (onePair [x]) ++ (straight [x])) == 0) list
-    
+
     pokerKanzen = [(fromIntegral (length $ poker (mogelijkheden)) / fromIntegral (length mogelijkheden)) * 100,
                    (fromIntegral (length $ fourOfAKind (mogelijkheden)) / fromIntegral (length mogelijkheden)) * 100,
                    (fromIntegral (length $ threeOfAKind (mogelijkheden)) / fromIntegral (length mogelijkheden)) * 100,
