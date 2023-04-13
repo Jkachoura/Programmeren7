@@ -37,10 +37,12 @@ module Opdracht3 where
     straight list = filter filterStraight list
     bust list = filter (\x -> length ((poker [x]) ++ (fourOfAKind [x]) ++ (threeOfAKind [x]) ++ (fullHouse [x]) ++ (twoPair [x]) ++ (onePair [x]) ++ (straight [x])) == 0) list
 
-    pokerKanzen = [(fromIntegral (length $ poker (mogelijkheden)) / fromIntegral (length mogelijkheden)) * 100,
-                   (fromIntegral (length $ fourOfAKind (mogelijkheden)) / fromIntegral (length mogelijkheden)) * 100,
-                   (fromIntegral (length $ threeOfAKind (mogelijkheden)) / fromIntegral (length mogelijkheden)) * 100,
-                   (fromIntegral (length $ twoPair (mogelijkheden)) / fromIntegral (length mogelijkheden)) * 100,
-                   (fromIntegral (length $ onePair (mogelijkheden)) / fromIntegral (length mogelijkheden)) * 100,
-                   (fromIntegral (length $ straight (mogelijkheden)) / fromIntegral (length mogelijkheden)) * 100,
-                   (fromIntegral (length $ bust (mogelijkheden)) / fromIntegral (length mogelijkheden)) * 100]
+    berekenKans x = (fromIntegral (length $ x (mogelijkheden)) / fromIntegral (length mogelijkheden)) * 100
+
+    pokerKanzen = [berekenKans poker,
+                   berekenKans fourOfAKind,
+                   berekenKans threeOfAKind,
+                   berekenKans twoPair,
+                   berekenKans onePair,
+                   berekenKans straight,
+                   berekenKans bust]
